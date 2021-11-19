@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+    mysqldb:
+        image: mysql
+        ports:
+        - 3306:3306
+        environment:
+        - MYSQL_ROOT_PASSWORD=SierraMikeEcho
+        volumes:
+        - mysql:/var/lib/mysql
+        - mysql_config:/etc/mysql
+
+    web:
+        build:
+          context: .
+        depends_on:
+        - 'mysqldb'
+        ports:
+        - 5000:5000
+        volumes:
+        - ./:/app
+
+volumes:
+    mysql:
+    mysql_config:
