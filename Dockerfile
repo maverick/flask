@@ -22,5 +22,7 @@ ENV MYSQL_SA_PASSWORD=SierraMikeEcho
 ENV MYSQL_DB=built
 
 RUN [ "env"]
-RUN [ "alembic", "upgrade", "head"]
+
+#RUN [ "alembic", "upgrade", "head"]
+
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
